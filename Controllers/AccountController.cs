@@ -25,7 +25,7 @@ namespace BusinessManagement.Controllers
 
         [HttpPost]  
         [ValidateAntiForgeryToken]  
-        public async Task<IActionResult> UserLogin(/*string UserID, string Password*/)  
+        public async Task<IActionResult> UserLogin(string UserID, string Password)  
         {    
             if (ModelState.IsValid)  
             {  

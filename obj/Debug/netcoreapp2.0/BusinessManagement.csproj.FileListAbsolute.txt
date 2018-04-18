@@ -1,10 +1,20 @@
-D:\Work\Core App\BusinessManagement\bin\Debug\netcoreapp2.0\BusinessManagement.deps.json
-D:\Work\Core App\BusinessManagement\bin\Debug\netcoreapp2.0\BusinessManagement.runtimeconfig.json
-D:\Work\Core App\BusinessManagement\bin\Debug\netcoreapp2.0\BusinessManagement.runtimeconfig.dev.json
-D:\Work\Core App\BusinessManagement\bin\Debug\netcoreapp2.0\BusinessManagement.dll
-D:\Work\Core App\BusinessManagement\bin\Debug\netcoreapp2.0\BusinessManagement.pdb
-D:\Work\Core App\BusinessManagement\obj\Debug\netcoreapp2.0\BusinessManagement.csproj.CoreCompileInputs.cache
-D:\Work\Core App\BusinessManagement\obj\Debug\netcoreapp2.0\BusinessManagement.AssemblyInfoInputs.cache
-D:\Work\Core App\BusinessManagement\obj\Debug\netcoreapp2.0\BusinessManagement.AssemblyInfo.cs
-D:\Work\Core App\BusinessManagement\obj\Debug\netcoreapp2.0\BusinessManagement.dll
-D:\Work\Core App\BusinessManagement\obj\Debug\netcoreapp2.0\BusinessManagement.pdb
+D:/Work/Core App/BusinessManagement/bin/Debug/netcoreapp2.0/BusinessManagement.deps.json
+D:/Work/Core App/BusinessManagement/bin/Debug/netcoreapp2.0/BusinessManagement.runtimeconfig.json
+D:/Work/Core App/BusinessManagement/bin/Debug/netcoreapp2.0/BusinessManagement.runtimeconfig.dev.json
+D:/Work/Core App/BusinessManagement/bin/Debug/netcoreapp2.0/BusinessManagement.dll
+D:/Work/Core App/BusinessManagement/bin/Debug/netcoreapp2.0/BusinessManagement.pdb
+D:/Work/Core App/BusinessManagement/obj/Debug/netcoreapp2.0/BusinessManagement.csproj.CoreCompileInputs.cache
+D:/Work/Core App/BusinessManagement/obj/Debug/netcoreapp2.0/BusinessManagement.AssemblyInfoInputs.cache
+D:/Work/Core App/BusinessManagement/obj/Debug/netcoreapp2.0/BusinessManagement.AssemblyInfo.cs
+D:/Work/Core App/BusinessManagement/obj/Debug/netcoreapp2.0/BusinessManagement.dll
+D:/Work/Core App/BusinessManagement/obj/Debug/netcoreapp2.0/BusinessManagement.pdb
+/Users/voquang/Documents/GitHub/WebApp/bin/Debug/netcoreapp2.0/BusinessManagement.deps.json
+/Users/voquang/Documents/GitHub/WebApp/bin/Debug/netcoreapp2.0/BusinessManagement.runtimeconfig.json
+/Users/voquang/Documents/GitHub/WebApp/bin/Debug/netcoreapp2.0/BusinessManagement.runtimeconfig.dev.json
+/Users/voquang/Documents/GitHub/WebApp/bin/Debug/netcoreapp2.0/BusinessManagement.dll
+/Users/voquang/Documents/GitHub/WebApp/bin/Debug/netcoreapp2.0/BusinessManagement.pdb
+/Users/voquang/Documents/GitHub/WebApp/obj/Debug/netcoreapp2.0/BusinessManagement.csproj.CoreCompileInputs.cache
+/Users/voquang/Documents/GitHub/WebApp/obj/Debug/netcoreapp2.0/BusinessManagement.AssemblyInfoInputs.cache
+/Users/voquang/Documents/GitHub/WebApp/obj/Debug/netcoreapp2.0/BusinessManagement.AssemblyInfo.cs
+/Users/voquang/Documents/GitHub/WebApp/obj/Debug/netcoreapp2.0/BusinessManagement.dll
+/Users/voquang/Documents/GitHub/WebApp/obj/Debug/netcoreapp2.0/BusinessManagement.pdb

@@ -12536,23 +12536,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\brights-vn\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/voquang/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Work\\Core App\\BusinessManagement\\BusinessManagement.csproj",
+      "projectUniqueName": "/Users/voquang/Documents/GitHub/WebApp/BusinessManagement.csproj",
       "projectName": "BusinessManagement",
-      "projectPath": "D:\\Work\\Core App\\BusinessManagement\\BusinessManagement.csproj",
-      "packagesPath": "C:\\Users\\brights-vn\\.nuget\\packages\\",
-      "outputPath": "D:\\Work\\Core App\\BusinessManagement\\obj\\",
+      "projectPath": "/Users/voquang/Documents/GitHub/WebApp/BusinessManagement.csproj",
+      "packagesPath": "/Users/voquang/.nuget/packages/",
+      "outputPath": "/Users/voquang/Documents/GitHub/WebApp/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\brights-vn\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/voquang/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"

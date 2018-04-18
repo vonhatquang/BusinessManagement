@@ -1,9 +1,9 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\brights-vn\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\brights-vn\\.nuget\\packages",
-      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      "/Users/voquang/.dotnet/store/|arch|/|tfm|",
+      "/Users/voquang/.nuget/packages",
+      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
     ]
   }
 }
