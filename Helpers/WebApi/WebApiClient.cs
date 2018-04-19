@@ -2,16 +2,27 @@ using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Microsoft.Extensions.Options;
+using System.Collections.Generic;
+using Newtonsoft.Json; 
+using System.Threading.Tasks;  
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json.Linq; 
 namespace WebApp.Helpers.WebApi
 {
-    public class CallWebApi
+    public class WebApiClient
     {
-        private WebApiSetting _webApiSetting { get; set; }
+        private WebApiSetting _webApiSetting = new WebApiSetting();
+        //private IConfigurationSection section; 
         private HttpClient _client;
         private string _webApiCaller;
-        public CallWebApi(IOptions<WebApiSetting> settings)
+        private IConfiguration _configuration;
+        public WebApiClient(IConfiguration configuration)
         {
-            this._webApiSetting = settings.Value;
+            this._configuration = configuration;
+            JToken jAppSettings = JToken.Parse(
+                File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "appsettings.json"))
+            );
+            var section = jAppSettings["WebApiUrl"];
         }
 
         public void InitializeClient(string webApiCaller)
@@ -38,7 +49,7 @@ namespace WebApp.Helpers.WebApi
             string parameterValue = "";
             for (int i=0; i < parameters.Count; i++)
             {
-                if("".equal(parameterValue)){
+                if("".Equals(parameterValue)){
                     parameterValue += "?" + parameters[i].Name + "=" + parameters[i].Value; 
                 }else{
                     parameterValue += "&" + parameters[i].Name + "=" + parameters[i].Value;
@@ -57,23 +68,13 @@ namespace WebApp.Helpers.WebApi
             returnValue += this._webApiSetting.WebApiPrefix;
             returnValue += "/" + webApiController.Name;
             returnValue += "/" + webApiAction.Name;
-            string parameterValue = "";
-            for (int i=0; i < parameters.Count; i++)
-            {
-                if("".equal(parameterValue)){
-                    parameterValue += "?" + parameters[i].Name + "=" + parameters[i].Value; 
-                }else{
-                    parameterValue += "&" + parameters[i].Name + "=" + parameters[i].Value;
-                }
-            }
             returnValue += parameterValue;
             return returnValue;
         }
 
-        public T GetFromApi(){
-            HttpResponseMessage res = await client.GetAsync(MakeGetApi());  
+        public async Task<T> GetFromApi<T>(){
+            HttpResponseMessage res = await this._client.GetAsync(MakeGetApi());  
 
-            T dto = new T();
             //Checking the response is successful or not which is sent using HttpClient    
             if (res.IsSuccessStatusCode)  
             {  
@@ -81,16 +82,15 @@ namespace WebApp.Helpers.WebApi
                 var result = res.Content.ReadAsStringAsync().Result;  
   
                 //Deserializing the response recieved from web api and storing into the Employee list    
-                dto = JsonConvert.DeserializeObject<T>(result);  
+                return JsonConvert.DeserializeObject<T>(result);  
   
             }
-            return dto;
+            return default(T);
         }
 
-        public List<T> ListFromApi(){
-            HttpResponseMessage res = await client.GetAsync(MakeGetApi());  
+        public async Task<List<T>> ListFromApi<T>(){
+            HttpResponseMessage res = await this._client.GetAsync(MakeGetApi());  
 
-            List<T> dtos = new List<T>();
             //Checking the response is successful or not which is sent using HttpClient    
             if (res.IsSuccessStatusCode)  
             {  
@@ -98,25 +98,24 @@ namespace WebApp.Helpers.WebApi
                 var result = res.Content.ReadAsStringAsync().Result;  
   
                 //Deserializing the response recieved from web api and storing into the Employee list    
-                dtos = JsonConvert.DeserializeObject<List<T>>(result);  
+                return JsonConvert.DeserializeObject<List<T>>(result);  
   
             }
-            return dto;
+            return default(List<T>);
         }
 
-        public int PostToApi(List<WebApiParameter> parameters){
+        public async Task<int> PostToApi(List<WebApiParameter> parameters){
             string parameterValue = "";
             for (int i=0; i < parameters.Count; i++)
             {
-                if("".equal(parameterValue)){
+                if("".Equals(parameterValue)){
                     parameterValue += "?" + parameters[i].Name + "=" + parameters[i].Value; 
                 }else{
                     parameterValue += "&" + parameters[i].Name + "=" + parameters[i].Value;
                 }
             }
-            HttpResponseMessage res = await client.GetAsync(MakePostApi(parameterValue));  
+            HttpResponseMessage res = await this._client.GetAsync(MakePostApi(parameterValue));  
 
-            int dto = 0;
             //Checking the response is successful or not which is sent using HttpClient    
             if (res.IsSuccessStatusCode)  
             {  
@@ -124,9 +123,10 @@ namespace WebApp.Helpers.WebApi
                 var result = res.Content.ReadAsStringAsync().Result;  
   
                 //Deserializing the response recieved from web api and storing into the Employee list    
-                dto = JsonConvert.DeserializeObject<int>(result);  
+                return JsonConvert.DeserializeObject<int>(result);  
   
             }
+            return -1;
         }
     }
 }

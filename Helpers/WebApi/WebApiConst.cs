@@ -1,3 +1,3 @@
 public static class WebApiConst{
-    public static string CALCULATE_NUMBER = "Calculatenumber"
+    public static string CALCULATE_NUMBER = "Calculatenumber";
 }

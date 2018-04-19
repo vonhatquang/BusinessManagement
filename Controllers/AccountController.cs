@@ -7,11 +7,18 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication;
 using WebApp.Models;
+using WebApp.Helpers.WebApi;
+using Microsoft.Extensions.Configuration;
 
 namespace WebApp.Controllers
 {
     public class AccountController : Controller
     {
+        private IConfiguration _configuration;
+        public AccountController(IConfiguration configuration)
+        {
+            this._configuration = configuration;
+        }
         /*public IActionResult Index(string ReturnUrl)
         {
             //ViewBag.ReturnUrl = ReturnUrl;
@@ -28,6 +35,9 @@ namespace WebApp.Controllers
         public async Task<IActionResult> UserLogin(LoginUserModel model)  
         {    
             string userName = model.UserName;
+            WebApiClient client = new WebApiClient(this._configuration);
+            client.InitializeClient(WebApiConst.CALCULATE_NUMBER);
+            int cal = await client.GetFromApi<int>();
             if (ModelState.IsValid)  
             {  
                 //string LoginStatus = objUser.ValidateLogin(user);  

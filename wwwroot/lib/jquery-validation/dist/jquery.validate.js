@@ -333,13 +333,13 @@ $.extend( $.validator, {
 		number: "Please enter a valid number.",
 		digits: "Please enter only digits.",
 		creditcard: "Please enter a valid credit card number.",
-		equalTo: "Please enter the same value again.",
+		EqualsTo: "Please enter the same value again.",
 		maxlength: $.validator.format( "Please enter no more than {0} characters." ),
 		minlength: $.validator.format( "Please enter at least {0} characters." ),
 		rangelength: $.validator.format( "Please enter a value between {0} and {1} characters long." ),
 		range: $.validator.format( "Please enter a value between {0} and {1}." ),
-		max: $.validator.format( "Please enter a value less than or equal to {0}." ),
-		min: $.validator.format( "Please enter a value greater than or equal to {0}." )
+		max: $.validator.format( "Please enter a value less than or Equals to {0}." ),
+		min: $.validator.format( "Please enter a value greater than or Equals to {0}." )
 	},
 
 	autoCreateRanges: false,
@@ -1287,13 +1287,13 @@ $.extend( $.validator, {
 			return this.optional( element ) || ( value >= param[ 0 ] && value <= param[ 1 ] );
 		},
 
-		// http://jqueryvalidation.org/equalTo-method/
-		equalTo: function( value, element, param ) {
+		// http://jqueryvalidation.org/EqualsTo-method/
+		EqualsTo: function( value, element, param ) {
 			// bind to the blur event of the target in order to revalidate whenever the target field is updated
 			// TODO find a way to bind the event just once, avoiding the unbind-rebind overhead
 			var target = $( param );
 			if ( this.settings.onfocusout ) {
-				target.off( ".validate-equalTo" ).on( "blur.validate-equalTo", function() {
+				target.off( ".validate-EqualsTo" ).on( "blur.validate-EqualsTo", function() {
 					$( element ).valid();
 				});
 			}

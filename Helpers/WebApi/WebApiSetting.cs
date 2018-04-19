@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 namespace WebApp.Helpers.WebApi
 {
     public class WebApiSetting
@@ -18,7 +20,7 @@ namespace WebApp.Helpers.WebApi
     }
     
     public class WebApiAction{
-        public string Name {get;set}
+        public string Name {get;set;}
         public List<WebApiParameter> Parameters {get;set;}
     }
 

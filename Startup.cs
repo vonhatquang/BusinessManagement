@@ -29,7 +29,8 @@ namespace WebApp
                         options.LoginPath = "/Account/Login";  
   
                     });  
-            services.Configure<WebApiInfo>(Configuration.GetSection("WebApiSetting"));
+
+            services.Configure<WebApiSetting>(Configuration.GetSection("WebApiSetting"));
             services.AddMvc();
         }
 
