@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication;  
 using Microsoft.AspNetCore.Authorization;  
-using BusinessManagement.Models;
+using WebApp.Models;
 
-namespace BusinessManagement.Controllers
+namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {

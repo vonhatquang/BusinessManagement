@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.Security.Claims;  
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication;
-using BusinessManagement.Models;
+using WebApp.Models;
 
-namespace BusinessManagement.Controllers
+namespace WebApp.Controllers
 {
     public class AccountController : Controller
     {
@@ -25,8 +25,9 @@ namespace BusinessManagement.Controllers
 
         [HttpPost]  
         [ValidateAntiForgeryToken]  
-        public async Task<IActionResult> UserLogin(string UserID, string Password)  
+        public async Task<IActionResult> UserLogin(LoginUserModel model)  
         {    
+            string userName = model.UserName;
             if (ModelState.IsValid)  
             {  
                 //string LoginStatus = objUser.ValidateLogin(user);  

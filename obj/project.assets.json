@@ -12542,9 +12542,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/voquang/Documents/GitHub/WebApp/BusinessManagement.csproj",
-      "projectName": "BusinessManagement",
-      "projectPath": "/Users/voquang/Documents/GitHub/WebApp/BusinessManagement.csproj",
+      "projectUniqueName": "/Users/voquang/Documents/GitHub/WebApp/WebApp.csproj",
+      "projectName": "WebApp",
+      "projectPath": "/Users/voquang/Documents/GitHub/WebApp/WebApp.csproj",
       "packagesPath": "/Users/voquang/.nuget/packages/",
       "outputPath": "/Users/voquang/Documents/GitHub/WebApp/obj/",
       "projectStyle": "PackageReference",

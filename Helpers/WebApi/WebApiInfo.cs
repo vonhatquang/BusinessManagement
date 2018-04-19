@@ -1,4 +1,4 @@
-namespace BusinessManagement.Helpers.WebApi
+namespace WebApp.Helpers.WebApi
 {
     public class WebApiInfo
     {

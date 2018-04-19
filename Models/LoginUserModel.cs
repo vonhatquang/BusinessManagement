@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-namespace BusinessManagement.Models
+namespace WebApp.Models
 {
-    public class LoginForm
+    public class LoginUserModel
     {
         [Required]
-        [Display(Name = "User ID")]
-        public string UserID { get; set; }
+        [Display(Name = "User Name")]
+        public string UserName { get; set; }
 
         [Required]
-        [Display(Name = "Password")]
         [DataType(DataType.Password)]
+        [Display(Name = "Password")]
         public string Password { get; set; }
 
-        public string ReturnURL { get; set; }
+        [Display(Name = "Remember me?")]
+        public bool RememberMe { get; set; }
     }
 }

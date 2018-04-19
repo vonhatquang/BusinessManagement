@@ -1,0 +1,10 @@
+/Users/voquang/Documents/GitHub/WebApp/obj/Debug/netcoreapp2.0/WebApp.csproj.CoreCompileInputs.cache
+/Users/voquang/Documents/GitHub/WebApp/obj/Debug/netcoreapp2.0/WebApp.AssemblyInfoInputs.cache
+/Users/voquang/Documents/GitHub/WebApp/obj/Debug/netcoreapp2.0/WebApp.AssemblyInfo.cs
+/Users/voquang/Documents/GitHub/WebApp/bin/Debug/netcoreapp2.0/WebApp.deps.json
+/Users/voquang/Documents/GitHub/WebApp/bin/Debug/netcoreapp2.0/WebApp.runtimeconfig.json
+/Users/voquang/Documents/GitHub/WebApp/bin/Debug/netcoreapp2.0/WebApp.runtimeconfig.dev.json
+/Users/voquang/Documents/GitHub/WebApp/bin/Debug/netcoreapp2.0/WebApp.dll
+/Users/voquang/Documents/GitHub/WebApp/bin/Debug/netcoreapp2.0/WebApp.pdb
+/Users/voquang/Documents/GitHub/WebApp/obj/Debug/netcoreapp2.0/WebApp.dll
+/Users/voquang/Documents/GitHub/WebApp/obj/Debug/netcoreapp2.0/WebApp.pdb
