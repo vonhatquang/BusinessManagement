@@ -9,15 +9,16 @@ using Microsoft.AspNetCore.Authentication;
 using WebApp.Models;
 using WebApp.Helpers.WebApi;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace WebApp.Controllers
 {
     public class AccountController : Controller
     {
-        private IConfiguration _configuration;
-        public AccountController(IConfiguration configuration)
+        private readonly WebApiSetting _webApiSetting;
+        public AccountController(IOptions<WebApiSetting> webApiSetting)
         {
-            this._configuration = configuration;
+            this._webApiSetting = webApiSetting.Value;
         }
         /*public IActionResult Index(string ReturnUrl)
         {
@@ -35,9 +36,33 @@ namespace WebApp.Controllers
         public async Task<IActionResult> UserLogin(LoginUserModel model)  
         {    
             string userName = model.UserName;
-            WebApiClient client = new WebApiClient(this._configuration);
-            client.InitializeClient(WebApiConst.CALCULATE_NUMBER);
-            int cal = await client.GetFromApi<int>();
+            WebApiClient client = new WebApiClient(this._webApiSetting);
+            client.InitializeClient(WebApiConst.GET);
+            List<WebApiParameter> parameters = new List<WebApiParameter>();
+            parameters.Add(new WebApiParameter(){Name="a", Value="10"});
+            int getReturn = await client.GetFromApi<int>(parameters);
+
+            
+            client.InitializeClient(WebApiConst.LIST);
+            parameters = new List<WebApiParameter>();
+            parameters.Add(new WebApiParameter(){Name="a", Value="10"});
+            parameters.Add(new WebApiParameter(){Name="b", Value="20"});
+            List<string> listReturn = await client.ListFromApi<string>(parameters);
+
+            client.InitializeClient(WebApiConst.POST);
+            parameters = new List<WebApiParameter>();
+            parameters.Add(new WebApiParameter(){Name="a", Value="10"});
+            int postReturn = await client.PostToApi(parameters);
+
+            client.InitializeClient(WebApiConst.PUT);
+            parameters = new List<WebApiParameter>();
+            parameters.Add(new WebApiParameter(){Name="a", Value="10"});
+            int putReturn = await client.PutToApi(parameters);
+
+            client.InitializeClient(WebApiConst.DELETE);
+            parameters = new List<WebApiParameter>();
+            parameters.Add(new WebApiParameter(){Name="a", Value="10"});
+            int deleteReturn = await client.DeleteToApi(parameters);
             if (ModelState.IsValid)  
             {  
                 //string LoginStatus = objUser.ValidateLogin(user);  
