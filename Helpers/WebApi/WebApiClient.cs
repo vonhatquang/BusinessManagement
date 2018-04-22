@@ -63,7 +63,7 @@ namespace WebApp.Helpers.WebApi
             returnValue += "/" + webApiController.Name;
             returnValue += "/" + webApiAction.Name;
             if( parameter != null){
-                returnValue += parameter.Value;
+                returnValue += "/" + parameter.Value;
             }            
             return returnValue;
         }
@@ -80,6 +80,37 @@ namespace WebApp.Helpers.WebApi
             returnValue += parameterValue;
             return returnValue;
         }*/
+
+        public async Task<List<T>> ListFromCustomApi<T>(List<WebApiParameter> parameters = null){
+            HttpResponseMessage res = await this._client.GetAsync(MakeCustomApiUri(parameters));  
+
+            //Checking the response is successful or not which is sent using HttpClient    
+            if (res.IsSuccessStatusCode)  
+            {  
+                //Storing the response details recieved from web api     
+                var result = res.Content.ReadAsStringAsync().Result;  
+  
+                //Deserializing the response recieved from web api and storing into the Employee list    
+                return JsonConvert.DeserializeObject<List<T>>(result);  
+  
+            }
+            return default(List<T>);
+        }
+
+        public async Task<T> GetFromApi<T>(List<WebApiParameter> parameters = null){
+            HttpResponseMessage res = await this._client.GetAsync(MakeApiUri(parameters));  
+            //Checking the response is successful or not which is sent using HttpClient    
+            if (res.IsSuccessStatusCode)  
+            {  
+                //Storing the response details recieved from web api     
+                var result = res.Content.ReadAsStringAsync().Result;  
+  
+                //Deserializing the response recieved from web api and storing into the Employee list    
+                return JsonConvert.DeserializeObject<T>(result);  
+  
+            }
+            return default(T);
+        }
 
         public async Task<T> GetFromApi<T>(List<WebApiParameter> parameters = null){
             HttpResponseMessage res = await this._client.GetAsync(MakeApiUri(parameters));  
