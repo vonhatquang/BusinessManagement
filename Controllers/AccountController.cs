@@ -36,33 +36,54 @@ namespace WebApp.Controllers
         public async Task<IActionResult> UserLogin(LoginUserModel model)  
         {    
             string userName = model.UserName;
-            WebApiClient client = new WebApiClient(this._webApiSetting);
-            client.InitializeClient(WebApiConst.GET);
-            List<WebApiParameter> parameters = new List<WebApiParameter>();
-            parameters.Add(new WebApiParameter(){Name="a", Value="10"});
-            int getReturn = await client.GetFromApi<int>(parameters);
+            WebApiClient client = new WebApiClient(this._webApiSetting);            
+            List<WebApiParameter> parameters = new List<WebApiParameter>();            
+            WebApiParameter parameter = new WebApiParameter();
+            PostItem item = new PostItem();
+            //ListCustom
+            client.InitializeClient(WebApiConst.LISTCUSTOM);
+            List<PostItem> listCustom = await client.ListFromCustomApi<PostItem>();
 
-            
+            //GetCustom
+            client.InitializeClient(WebApiConst.GETCUSTOM);
+            parameters = new List<WebApiParameter>();  
+            parameters.Add(new WebApiParameter(){Name="id2", Value="0"});
+            PostItem getCustom = await client.GetFromCustomApi<PostItem>(parameters);
+
+            //List                       
             client.InitializeClient(WebApiConst.LIST);
-            parameters = new List<WebApiParameter>();
-            parameters.Add(new WebApiParameter(){Name="a", Value="10"});
-            parameters.Add(new WebApiParameter(){Name="b", Value="20"});
-            List<string> listReturn = await client.ListFromApi<string>(parameters);
+            List<PostItem> listReturn = await client.ListFromApi<PostItem>();
 
+            //Get
+            client.InitializeClient(WebApiConst.GET);
+            parameter = new WebApiParameter();
+            parameter.Name="id";
+            parameter.Value="0";
+            PostItem list = await client.GetFromApi<PostItem>(parameter);
+
+            //Post
             client.InitializeClient(WebApiConst.POST);
-            parameters = new List<WebApiParameter>();
-            parameters.Add(new WebApiParameter(){Name="a", Value="10"});
-            int postReturn = await client.PostToApi(parameters);
+            item = new PostItem();
+            item.value = "2000";
+            PostItem post = await client.PostToApi<PostItem>(item);
 
+            //Put
             client.InitializeClient(WebApiConst.PUT);
-            parameters = new List<WebApiParameter>();
-            parameters.Add(new WebApiParameter(){Name="a", Value="10"});
-            int putReturn = await client.PutToApi(parameters);
+            parameter = new WebApiParameter();
+            parameter.Name="id";
+            parameter.Value="0";
+            item = new PostItem();
+            item.value = "3000";
+            PostItem put = await client.PutToApi<PostItem>(parameter,item);
 
+            //Delete
             client.InitializeClient(WebApiConst.DELETE);
-            parameters = new List<WebApiParameter>();
-            parameters.Add(new WebApiParameter(){Name="a", Value="10"});
-            int deleteReturn = await client.DeleteToApi(parameters);
+            parameter = new WebApiParameter();
+            parameter.Name="id";
+            parameter.Value="0";
+            PostItem delete = await client.DeleteToApi<PostItem>(parameter);
+
+
             if (ModelState.IsValid)  
             {  
                 //string LoginStatus = objUser.ValidateLogin(user);  

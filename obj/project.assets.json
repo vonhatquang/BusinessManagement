@@ -12537,23 +12537,23 @@
     ]
   },
   "packageFolders": {
-    "/Users/voquang/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\brights-vn\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/voquang/Documents/GitHub/WebApp/WebApp.csproj",
+      "projectUniqueName": "D:\\Work\\Core App\\WebApp\\WebApp.csproj",
       "projectName": "WebApp",
-      "projectPath": "/Users/voquang/Documents/GitHub/WebApp/WebApp.csproj",
-      "packagesPath": "/Users/voquang/.nuget/packages/",
-      "outputPath": "/Users/voquang/Documents/GitHub/WebApp/obj/",
+      "projectPath": "D:\\Work\\Core App\\WebApp\\WebApp.csproj",
+      "packagesPath": "C:\\Users\\brights-vn\\.nuget\\packages\\",
+      "outputPath": "D:\\Work\\Core App\\WebApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/voquang/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\brights-vn\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"

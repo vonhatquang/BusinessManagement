@@ -97,8 +97,8 @@ namespace WebApp.Helpers.WebApi
             return default(List<T>);
         }
 
-        public async Task<T> GetFromApi<T>(List<WebApiParameter> parameters = null){
-            HttpResponseMessage res = await this._client.GetAsync(MakeApiUri(parameters));  
+        public async Task<T> GetFromCustomApi<T>(List<WebApiParameter> parameters = null){
+            HttpResponseMessage res = await this._client.GetAsync(MakeCustomApiUri(parameters));  
             //Checking the response is successful or not which is sent using HttpClient    
             if (res.IsSuccessStatusCode)  
             {  
@@ -112,23 +112,8 @@ namespace WebApp.Helpers.WebApi
             return default(T);
         }
 
-        public async Task<T> GetFromApi<T>(List<WebApiParameter> parameters = null){
-            HttpResponseMessage res = await this._client.GetAsync(MakeApiUri(parameters));  
-            //Checking the response is successful or not which is sent using HttpClient    
-            if (res.IsSuccessStatusCode)  
-            {  
-                //Storing the response details recieved from web api     
-                var result = res.Content.ReadAsStringAsync().Result;  
-  
-                //Deserializing the response recieved from web api and storing into the Employee list    
-                return JsonConvert.DeserializeObject<T>(result);  
-  
-            }
-            return default(T);
-        }
-
-        public async Task<List<T>> ListFromApi<T>(List<WebApiParameter> parameters = null){
-            HttpResponseMessage res = await this._client.GetAsync(MakeApiUri(parameters));  
+        public async Task<List<T>> ListFromApi<T>(WebApiParameter parameter = null){
+            HttpResponseMessage res = await this._client.GetAsync(MakeApiUri(parameter));  
 
             //Checking the response is successful or not which is sent using HttpClient    
             if (res.IsSuccessStatusCode)  
@@ -143,29 +128,44 @@ namespace WebApp.Helpers.WebApi
             return default(List<T>);
         }
 
-        public async Task<int> PostToApi(List<WebApiParameter> parameters = null){
-            string stringData = JsonConvert.SerializeObject(parameters);
+        public async Task<T> GetFromApi<T>(WebApiParameter parameter = null){
+            HttpResponseMessage res = await this._client.GetAsync(MakeApiUri(parameter));  
+            //Checking the response is successful or not which is sent using HttpClient    
+            if (res.IsSuccessStatusCode)  
+            {  
+                //Storing the response details recieved from web api     
+                var result = res.Content.ReadAsStringAsync().Result;  
+  
+                //Deserializing the response recieved from web api and storing into the Employee list    
+                return JsonConvert.DeserializeObject<T>(result);  
+  
+            }
+            return default(T);
+        }
+
+        public async Task<T> PostToApi<T>(T postItem){
+            string stringData = JsonConvert.SerializeObject(postItem);
             var contentData = new StringContent(stringData, System.Text.Encoding.UTF8, "application/json");
             HttpResponseMessage res = await this._client.PostAsync(MakeApiUri(),contentData);          
             //res.EnsureSuccessStatusCode();
             var returnVal = res.Content.ReadAsStringAsync().Result;
-            return -1;
+            return JsonConvert.DeserializeObject<T>(returnVal);
         }
 
-        public async Task<int> PutToApi(List<WebApiParameter> parameters = null){
-            string stringData = JsonConvert.SerializeObject(parameters);
+        public async Task<T> PutToApi<T>(WebApiParameter parameter, T putItem){
+            string stringData = JsonConvert.SerializeObject(putItem);
             var contentData = new StringContent(stringData, System.Text.Encoding.UTF8, "application/json");
-            HttpResponseMessage res = await this._client.PutAsync(MakeApiUri(),contentData);          
+            HttpResponseMessage res = await this._client.PutAsync(MakeApiUri(parameter),contentData);          
             //res.EnsureSuccessStatusCode();
             var returnVal = res.Content.ReadAsStringAsync().Result;
-            return -1;
+            return JsonConvert.DeserializeObject<T>(returnVal);
         }
 
-        public async Task<int> DeleteToApi(List<WebApiParameter> parameters = null){
-            HttpResponseMessage res = await this._client.DeleteAsync(MakeApiUri(parameters));          
+        public async Task<T> DeleteToApi<T>(WebApiParameter parameter){
+            HttpResponseMessage res = await this._client.DeleteAsync(MakeApiUri(parameter));          
             //res.EnsureSuccessStatusCode();
             var returnVal = res.Content.ReadAsStringAsync().Result;
-            return -1;
+            return JsonConvert.DeserializeObject<T>(returnVal);
         }
     }
 }
