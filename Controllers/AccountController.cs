@@ -81,7 +81,7 @@ namespace WebApp.Controllers
             parameter = new WebApiParameter();
             parameter.Name="id";
             parameter.Value="0";
-            PostItem delete = await client.DeleteToApi<PostItem>(parameter);
+            string delete = await client.DeleteToApi(parameter);
 
 
             if (ModelState.IsValid)  
@@ -100,11 +100,19 @@ namespace WebApp.Controllers
   
                     await HttpContext.SignInAsync(principal,new AuthenticationProperties
                     {
-                        ExpiresUtc = DateTime.UtcNow.AddSeconds(5),
+                        ExpiresUtc = DateTime.UtcNow.AddMinutes(20),
                         IsPersistent = false,
                         AllowRefresh = false
                     });  
-                    return RedirectToAction("Index", "Home", new {area=""});  
+                        
+                    if (Url.IsLocalUrl(model.ReturnUrl))
+                    {
+                        return Redirect(model.ReturnUrl);
+                    }
+                    else{
+                     
+                        return RedirectToAction("Index", "Home", new {area=""});  
+                    } 
                 /*}  
                 else  
                 {  

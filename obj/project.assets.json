@@ -12537,23 +12537,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\brights-vn\\.nuget\\packages\\": {},
+    "C:\\Users\\nhatq\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Work\\Core App\\WebApp\\WebApp.csproj",
+      "projectUniqueName": "C:\\Users\\nhatq\\Documents\\GitHub\\WebApp\\WebApp.csproj",
       "projectName": "WebApp",
-      "projectPath": "D:\\Work\\Core App\\WebApp\\WebApp.csproj",
-      "packagesPath": "C:\\Users\\brights-vn\\.nuget\\packages\\",
-      "outputPath": "D:\\Work\\Core App\\WebApp\\obj\\",
+      "projectPath": "C:\\Users\\nhatq\\Documents\\GitHub\\WebApp\\WebApp.csproj",
+      "packagesPath": "C:\\Users\\nhatq\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\nhatq\\Documents\\GitHub\\WebApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\brights-vn\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\nhatq\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"

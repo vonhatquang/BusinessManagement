@@ -4,7 +4,7 @@
     ViewData["Title"] = "Login";
 }
 
-<div><form asp-controller="Account" asp-action="UserLogin" method="post">
+<div><form asp-controller="Account" asp-action="UserLogin" method="post" asp-route-returnurl=@ViewBag.ReturnUrl>
     User Name:  <input asp-for="UserName" /> <br />
     Password: <input asp-for="Password" /><br />
     <button type="submit">Login</button>

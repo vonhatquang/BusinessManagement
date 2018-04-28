@@ -161,11 +161,11 @@ namespace WebApp.Helpers.WebApi
             return JsonConvert.DeserializeObject<T>(returnVal);
         }
 
-        public async Task<T> DeleteToApi<T>(WebApiParameter parameter){
+        public async Task<string> DeleteToApi(WebApiParameter parameter){
             HttpResponseMessage res = await this._client.DeleteAsync(MakeApiUri(parameter));          
             //res.EnsureSuccessStatusCode();
             var returnVal = res.Content.ReadAsStringAsync().Result;
-            return JsonConvert.DeserializeObject<T>(returnVal);
+            return returnVal.ToString();
         }
     }
 }
