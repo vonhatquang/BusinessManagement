@@ -41,47 +41,44 @@ namespace WebApp.Controllers
             WebApiParameter parameter = new WebApiParameter();
             PostItem item = new PostItem();
             //ListCustom
-            client.InitializeClient(WebApiConst.LISTCUSTOM);
-            List<PostItem> listCustom = await client.ListFromCustomApi<PostItem>();
+            client.InitializeClient(WebApiConst.VALUES_LISTCUSTOM);
+            List<PostItem> listCustom = await client.List<PostItem>();
 
             //GetCustom
-            client.InitializeClient(WebApiConst.GETCUSTOM);
+            client.InitializeClient(WebApiConst.VALUES_GETCUSTOM);
             parameters = new List<WebApiParameter>();  
             parameters.Add(new WebApiParameter(){Name="id2", Value="0"});
-            PostItem getCustom = await client.GetFromCustomApi<PostItem>(parameters);
+            PostItem getCustom = await client.Get<PostItem>(parameters);
 
             //List                       
-            client.InitializeClient(WebApiConst.LIST);
-            List<PostItem> listReturn = await client.ListFromApi<PostItem>();
+            client.InitializeClient(WebApiConst.VALUES_LIST);
+            List<PostItem> listReturn = await client.List<PostItem>();
 
             //Get
-            client.InitializeClient(WebApiConst.GET);
-            parameter = new WebApiParameter();
-            parameter.Name="id";
-            parameter.Value="0";
-            PostItem list = await client.GetFromApi<PostItem>(parameter);
+            client.InitializeClient(WebApiConst.VALUES_GET);
+            parameters = new List<WebApiParameter>();  
+            parameters.Add(new WebApiParameter(){Name="id", Value="0"});
+            PostItem getReturn = await client.Get<PostItem>(parameters);
 
             //Post
-            client.InitializeClient(WebApiConst.POST);
+            client.InitializeClient(WebApiConst.VALUES_POST);
             item = new PostItem();
             item.value = "2000";
-            PostItem post = await client.PostToApi<PostItem>(item);
+            PostItem post = await client.Post<PostItem>(item);
 
             //Put
-            client.InitializeClient(WebApiConst.PUT);
-            parameter = new WebApiParameter();
-            parameter.Name="id";
-            parameter.Value="0";
+            client.InitializeClient(WebApiConst.VALUES_PUT);
+            parameters = new List<WebApiParameter>();  
+            parameters.Add(new WebApiParameter(){Name="id", Value="0"});
             item = new PostItem();
             item.value = "3000";
-            PostItem put = await client.PutToApi<PostItem>(parameter,item);
+            PostItem put = await client.Put<PostItem>(parameters,item);
 
             //Delete
-            client.InitializeClient(WebApiConst.DELETE);
-            parameter = new WebApiParameter();
-            parameter.Name="id";
-            parameter.Value="0";
-            string delete = await client.DeleteToApi(parameter);
+            client.InitializeClient(WebApiConst.VALUES_DELETE);
+            parameters = new List<WebApiParameter>();  
+            parameters.Add(new WebApiParameter(){Name="id", Value="0"});
+            string delete = await client.Delete(parameters);
 
 
             if (ModelState.IsValid)  

@@ -6,22 +6,18 @@ namespace WebApp.Helpers.WebApi
     {
         public string WebApiUrl { get; set; }
         public string WebApiPrefix { get; set; }
-        public List<WebApiCaller> WebApiCallers {get;set;}
-    }
-
-    public class WebApiCaller{
-        public string Name {get;set;}
-        public WebApiController Controller {get;set;}
-    }
+        public List<WebApiController> WebApiControllers{get;set;}
+    }   
 
     public class WebApiController{
-        public string Name {get;set;}
-        public WebApiAction Action {get;set;}
+        public string Name {get;set;}        
+        public List<WebApiAction> WebApiActions {get;set;}
     }
     
     public class WebApiAction{
         public string Name {get;set;}
-        public List<WebApiParameter> Parameters {get;set;}
+        public string ActionType{get;set;}
+        public bool IsCustom {get;set;}
     }
 
     public class WebApiParameter{
