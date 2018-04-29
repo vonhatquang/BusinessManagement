@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-namespace WebApp.Helpers.WebApi
+namespace WebApp.Helpers
 {
     public class WebApiSetting
     {

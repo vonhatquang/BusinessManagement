@@ -7,7 +7,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication;
 using WebApp.Models;
-using WebApp.Helpers.WebApi;
+using WebApp.Helpers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 
@@ -16,9 +16,11 @@ namespace WebApp.Controllers
     public class AccountController : Controller
     {
         private readonly WebApiSetting _webApiSetting;
-        public AccountController(IOptions<WebApiSetting> webApiSetting)
+        private readonly IPasswordHelper _passwordHelper;
+        public AccountController(IOptions<WebApiSetting> webApiSetting, IPasswordHelper passwordHelper)
         {
             this._webApiSetting = webApiSetting.Value;
+            this._passwordHelper = passwordHelper;
         }
         /*public IActionResult Index(string ReturnUrl)
         {
@@ -80,6 +82,7 @@ namespace WebApp.Controllers
             parameters.Add(new WebApiParameter(){Name="id", Value="0"});
             string delete = await client.Delete(parameters);
 
+            string newPass = this._passwordHelper.EncodePassword(model.Password);
 
             if (ModelState.IsValid)  
             {  

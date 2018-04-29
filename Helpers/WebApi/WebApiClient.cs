@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json; 
 using System.Threading.Tasks;  
 using Newtonsoft.Json.Linq; 
-namespace WebApp.Helpers.WebApi
+namespace WebApp.Helpers
 {
     public class WebApiClient
     {

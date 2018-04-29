@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WebApp.Helpers.WebApi;
+using WebApp.Helpers;
 
 namespace WebApp
 {
@@ -31,6 +31,8 @@ namespace WebApp
                     });  
 
             services.Configure<WebApiSetting>(Configuration.GetSection("WebApiSetting"));
+            services.AddTransient<IStringHelper, StringHelper>();            
+            services.AddTransient<IPasswordHelper, PasswordHelper>();
             services.AddMvc();
         }
 
