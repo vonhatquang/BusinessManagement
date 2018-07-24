@@ -21,3 +21,13 @@ C:\Users\nhatq\Documents\GitHub\WebApp\bin\Debug\netcoreapp2.0\WebApp.dll
 C:\Users\nhatq\Documents\GitHub\WebApp\bin\Debug\netcoreapp2.0\WebApp.pdb
 C:\Users\nhatq\Documents\GitHub\WebApp\obj\Debug\netcoreapp2.0\WebApp.dll
 C:\Users\nhatq\Documents\GitHub\WebApp\obj\Debug\netcoreapp2.0\WebApp.pdb
+C:\Users\Vo Nhat Quang\source\repos\WebApp\bin\Debug\netcoreapp2.0\WebApp.deps.json
+C:\Users\Vo Nhat Quang\source\repos\WebApp\bin\Debug\netcoreapp2.0\WebApp.runtimeconfig.json
+C:\Users\Vo Nhat Quang\source\repos\WebApp\bin\Debug\netcoreapp2.0\WebApp.runtimeconfig.dev.json
+C:\Users\Vo Nhat Quang\source\repos\WebApp\bin\Debug\netcoreapp2.0\WebApp.dll
+C:\Users\Vo Nhat Quang\source\repos\WebApp\bin\Debug\netcoreapp2.0\WebApp.pdb
+C:\Users\Vo Nhat Quang\source\repos\WebApp\obj\Debug\netcoreapp2.0\WebApp.csproj.CoreCompileInputs.cache
+C:\Users\Vo Nhat Quang\source\repos\WebApp\obj\Debug\netcoreapp2.0\WebApp.AssemblyInfoInputs.cache
+C:\Users\Vo Nhat Quang\source\repos\WebApp\obj\Debug\netcoreapp2.0\WebApp.AssemblyInfo.cs
+C:\Users\Vo Nhat Quang\source\repos\WebApp\obj\Debug\netcoreapp2.0\WebApp.dll
+C:\Users\Vo Nhat Quang\source\repos\WebApp\obj\Debug\netcoreapp2.0\WebApp.pdb
