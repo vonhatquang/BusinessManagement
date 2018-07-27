@@ -1,3 +1,4 @@
+using Helper.String;
 namespace WebApp.Helpers
 {
     public class PasswordHelper:IPasswordHelper

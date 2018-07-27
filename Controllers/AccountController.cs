@@ -7,19 +7,20 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication;
 using WebApp.Models;
-using WebApp.Helpers;
+//using WebApp.Helpers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
+using Helper;
 
 namespace WebApp.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly WebApiSetting _webApiSetting;
+        private readonly ApiSetting _apiSetting;
         private readonly IPasswordHelper _passwordHelper;
-        public AccountController(IOptions<WebApiSetting> webApiSetting, IPasswordHelper passwordHelper)
+        public AccountController(IOptions<ApiSetting> apiSetting, IPasswordHelper passwordHelper)
         {
-            this._webApiSetting = webApiSetting.Value;
+            this._apiSetting = apiSetting.Value;
             this._passwordHelper = passwordHelper;
         }
         /*public IActionResult Index(string ReturnUrl)
@@ -38,48 +39,48 @@ namespace WebApp.Controllers
         public async Task<IActionResult> UserLogin(LoginUserModel model)  
         {    
             string userName = model.UserName;
-            WebApiClient client = new WebApiClient(this._webApiSetting);            
-            List<WebApiParameter> parameters = new List<WebApiParameter>();            
-            WebApiParameter parameter = new WebApiParameter();
+            ApiClient client = new ApiClient(this._apiSetting);            
+            List<ApiParameter> parameters = new List<ApiParameter>();            
+            ApiParameter parameter = new ApiParameter();
             PostItem item = new PostItem();
             //ListCustom
-            client.InitializeClient(WebApiConst.VALUES_LISTCUSTOM);
+            client.InitializeClient(ApiConst.VALUES_LISTCUSTOM);
             List<PostItem> listCustom = await client.List<PostItem>();
 
             //GetCustom
-            client.InitializeClient(WebApiConst.VALUES_GETCUSTOM);
-            parameters = new List<WebApiParameter>();  
-            parameters.Add(new WebApiParameter(){Name="id2", Value="0"});
+            client.InitializeClient(ApiConst.VALUES_GETCUSTOM);
+            parameters = new List<ApiParameter>();  
+            parameters.Add(new ApiParameter(){Name="id2", Value="0"});
             PostItem getCustom = await client.Get<PostItem>(parameters);
 
             //List                       
-            client.InitializeClient(WebApiConst.VALUES_LIST);
+            client.InitializeClient(ApiConst.VALUES_LIST);
             List<PostItem> listReturn = await client.List<PostItem>();
 
             //Get
-            client.InitializeClient(WebApiConst.VALUES_GET);
-            parameters = new List<WebApiParameter>();  
-            parameters.Add(new WebApiParameter(){Name="id", Value="0"});
+            client.InitializeClient(ApiConst.VALUES_GET);
+            parameters = new List<ApiParameter>();  
+            parameters.Add(new ApiParameter(){Name="id", Value="0"});
             PostItem getReturn = await client.Get<PostItem>(parameters);
 
             //Post
-            client.InitializeClient(WebApiConst.VALUES_POST);
+            client.InitializeClient(ApiConst.VALUES_POST);
             item = new PostItem();
             item.value = "2000";
             PostItem post = await client.Post<PostItem>(item);
 
             //Put
-            client.InitializeClient(WebApiConst.VALUES_PUT);
-            parameters = new List<WebApiParameter>();  
-            parameters.Add(new WebApiParameter(){Name="id", Value="0"});
+            client.InitializeClient(ApiConst.VALUES_PUT);
+            parameters = new List<ApiParameter>();  
+            parameters.Add(new ApiParameter(){Name="id", Value="0"});
             item = new PostItem();
             item.value = "3000";
             PostItem put = await client.Put<PostItem>(parameters,item);
 
             //Delete
-            client.InitializeClient(WebApiConst.VALUES_DELETE);
-            parameters = new List<WebApiParameter>();  
-            parameters.Add(new WebApiParameter(){Name="id", Value="0"});
+            client.InitializeClient(ApiConst.VALUES_DELETE);
+            parameters = new List<ApiParameter>();  
+            parameters.Add(new ApiParameter(){Name="id", Value="0"});
             string delete = await client.Delete(parameters);
 
             string newPass = this._passwordHelper.EncodePassword(model.Password);
